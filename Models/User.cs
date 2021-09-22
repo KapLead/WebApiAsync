@@ -1,14 +1,15 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+using System.Xml.Serialization;
 
 namespace WebApiAsync.Models
 {
-    public class User : IUser
+    public class User
     {
-        [Key] public Guid query { get; set; }
+        [Key,XmlIgnore,JsonIgnore] public int UserId { get; set; }
+        public Guid query { get; set; }
         public int persent { get; set; }
-        public Result result { get; set; } = null;
     }
 
 }
